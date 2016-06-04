@@ -1,0 +1,60 @@
+body {
+  padding:32px;
+  font-family:Roboto,Arial,sans-serif;
+  font-size:16px
+}
+
+.headImg {
+  height:500px;
+  text-align:center;
+  /*background:url('../images/flower.jpg') center no-repeat fixed;*/
+  background-color: #cccccc;
+}
+.headImg h2 {
+  padding: 60px;
+}
+
+.highlight {
+  font-family: Courier;
+  font-weight: bold;
+}
+
+.panelTitle {
+  margin-left: 75px;
+}
+
+.jumbotron p {
+  text-align: center;
+}
+
+.dropdown {
+  text-align: center;
+}
+
+.dropdown-menu {
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+
+#answer {
+  text-align: center;
+}
+
+#answer input {
+  height: 50px;
+  width: 310px;
+}
+
+#start {
+  float: right;
+}
+
+#reset {
+  float: left;
+}
+
+#logout {
+  text-align: right;
+}

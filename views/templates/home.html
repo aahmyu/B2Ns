@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <p-tabView>
+                    <p-tabPanel header="Home">
+                        <div class="page-header">
+                            <h2>
+                                Hello <strong>{{fullName}}!</strong>
+                            </h2>
+                            <div id="logout">
+                                <a href="/logout" class="btn btn-warning btn-lg">Logout</a>
+                            </div>
+                        </div>
+                        <div class="jumbotron well">
+                            <p>
+                                Welcome back, <span>{{firstName}}</span>!<br>
+                                Are you ready for a new challenge?<br>
+                                Pick a level and then click Start Challenge
+                            </p>
+                            <p>Level: <span>{{ level }}</span></p>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Level
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a (click)="setLevel('easy')">Easy</a></li>
+                                    <li><a (click)="setLevel('hard')">Hard</a></li>
+                                </ul>
+                            </div><br><br>
+                            <div class="row">
+                                <p-messages [value]="msgs"></p-messages>
+                                <div class="col-sm-6">
+                                    <button id="start" (click)="start()" class="btn btn-success btn-lg">Start Challenge</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button id="reset" (click)="reset()" class="btn btn-success btn-lg">Reset Challenge</button>
+                                </div>
+                            </div>
+
+                            <br><br>
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        <span>Level: {{ panelLevel }}</span> <span class="panelTitle">Question: {{questionNumber}}</span>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <p>{{challenge}}</p>
+                                </div>
+                            </div>
+                            <div id="answer">
+                                <input id="answerField" #answerField type="text" [(ngModel)]="answer" (keyup)="onKeyUp()" autocomplete="off" maxlength="35" placeholder=" Answer the question to enable the button"> <br><br>
+                                <button (click)="submit(answerField.value)" [disabled]="!isFilled" class="btn btn-default">Submit Answer</button>
+                            </div>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="Profile">
+                        <div class="page-header">
+                            <h2>
+                                Hello <strong>{{fullName}}!</strong>
+                            </h2>
+                            <div id="logout">
+                                <a href="/logout" class="btn btn-warning btn-lg">Logout</a>
+                            </div>
+                        </div>
+                        <myprofile [email]="email" [firstName]="firstName" [fullName]="fullName" [questionAnswer]="questionAnswer"></myprofile>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
