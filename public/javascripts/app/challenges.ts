@@ -3,4 +3,6 @@ export interface IChallenge {
     num: number;
     question: string;
     level: string;
+    answer: string;
+    hint: string;
 }

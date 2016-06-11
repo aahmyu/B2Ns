@@ -33,7 +33,6 @@ app.use(session({secret: 'string of text',
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use('/', routes);
 require('./routes/routes.js')(app, passport);
 
 // catch 404 and forward to error handler

@@ -20,12 +20,41 @@ var UserService = (function () {
         return this.http.get(this._userUrl)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
-        // .subscribe(
-        //     data => {
-        //         this.challenges = data, this.panelLevel = data.level
-        //     },
-        //     err => console.error(err)
-        // );
+    };
+    UserService.prototype.getUserHistory = function () {
+        return this.http.get('/api/user/history')
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.postAnswers = function (question, answer) {
+        var body = JSON.stringify({ question: question, answer: answer });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post('/submit', body, options)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.updateAnswer = function (answer, id) {
+        var body = JSON.stringify({ answer: answer, id: id });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.put('/api/user/history/update', body, options)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.deleteAnswer = function (id) {
+        var body = JSON.stringify({ id: id });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.put('/api/user/history/delete', body, options)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.deleteHistory = function () {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        return this.http.delete('/api/user/history/clearhistory')
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
     };
     UserService.prototype.handleError = function (error) {
         console.error(error);

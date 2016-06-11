@@ -12,6 +12,7 @@ module.exports = function(app, passport){
 
     app.get('/home', isLoggedIn, function (req, res) {
         res.sendfile(path.join(__dirname, '../', 'views', 'index.html'));
+        // console.log(req.user);
     });
 
     app.get('/auth/facebook', passport.authenticate('facebook'));
@@ -25,7 +26,27 @@ module.exports = function(app, passport){
         res.redirect('/');
     });
     app.get('/challenge', function (req, res) {
-        db.findChallenge(req ,res);
+        db.findChallenge(res);
+    });
+    
+    app.post('/submit', function(req, res) {
+        db.subAnswer(req, res);
+    });
+
+    app.get('/api/user/history', isLoggedIn, function (req, res) {
+        res.send(req.user.inputs);
+    });
+    
+    app.put('/api/user/history/update', isLoggedIn, function (req, res) {
+        db.editAnswer(req, res);
+    });
+
+    app.put('/api/user/history/delete', isLoggedIn, function (req, res) {
+        db.deleteAnswer(req, res);
+    });
+
+    app.delete('/api/user/history/clearhistory', isLoggedIn, function (req, res) {
+        db.deleteHistory(req, res);
     });
 };
 

@@ -8,7 +8,12 @@ var userSchema = mongoose.Schema({
         fullName: String,
         firstName: String,
         avatar: String
-    }
+    },
+    inputs: [{
+        question: String,
+        answer: String,
+        id: Number
+    }]
 });
 
 module.exports = mongoose.model('User', userSchema);

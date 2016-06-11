@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var primeng_1 = require('primeng/primeng');
+var challenges_reverse_pipe_1 = require("./challenges-reverse.pipe");
 var ProfileComponent = (function () {
     function ProfileComponent() {
         this.questionAnswer = [{ question: '', answer: '' }];
@@ -34,7 +35,8 @@ var ProfileComponent = (function () {
         core_1.Component({
             selector: 'myprofile',
             templateUrl: 'templates/profile.html',
-            directives: [primeng_1.Panel]
+            directives: [primeng_1.Panel],
+            pipes: [challenges_reverse_pipe_1.ChallengesReversePipe]
         }), 
         __metadata('design:paramtypes', [])
     ], ProfileComponent);

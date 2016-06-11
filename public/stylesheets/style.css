@@ -1,17 +1,19 @@
 body {
   padding:32px;
   font-family:Roboto,Arial,sans-serif;
-  font-size:16px
+  font-size:16px;
 }
 
 .headImg {
   height:500px;
   text-align:center;
-  /*background:url('../images/flower.jpg') center no-repeat fixed;*/
-  background-color: #cccccc;
+  background:url('../images/flower.jpg') center no-repeat fixed;
+  /*background-color: #cccccc;*/
 }
-.headImg h2 {
+.headImg h1 {
   padding: 60px;
+  font-family: 'Pacifico', cursive;
+  color: #9932CC;
 }
 
 .highlight {
@@ -19,12 +21,18 @@ body {
   font-weight: bold;
 }
 
+.jumbotron {
+  min-height: 500px;
+  text-align: center;
+}
+
 .panelTitle {
   margin-left: 75px;
 }
 
-.jumbotron p {
+#welcome {
   text-align: center;
+  font-size: 35px;
 }
 
 .dropdown {
@@ -43,18 +51,52 @@ body {
 }
 
 #answer input {
+  padding: 5px;
   height: 50px;
   width: 310px;
+  border-radius: 5%;
 }
 
 #start {
-  float: right;
+  text-align: center;
 }
 
-#reset {
-  float: left;
+#pstart{
+    text-align: left;
 }
 
-#logout {
+.logout {
   text-align: right;
+}
+
+#hintbtn{
+  border-radius: 35%;
+}
+
+#scrollbody {
+    max-height: 300px;
+    overflow: auto;
+}
+
+#tableh th {
+    text-align: center;
+}
+
+#history {
+  height: 440px;
+  overflow: auto;
+}
+
+.paneltools {
+  float: right;
+  text-align: right;
+}
+
+.editsubmitbtn{
+  text-align: center;
+}
+
+.jcolor {
+  background-color: #7FFFD4;
+  color: #8A2BE2;
 }

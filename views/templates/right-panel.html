@@ -1,0 +1,45 @@
+<div  class="container-fluid">
+    <div class="panel panel-info">
+        <div class="panel-heading clearfix">
+            <h2 class="panel-title pull-left" style="padding-top: 7.5px">
+                History
+            </h2>
+            <div class="pull-right">
+                <button class="btn btn-primary" data-toggle="tooltip" title="Clear History" (click)="deleteAll()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="panel-body" id="history">
+            <div>
+                <div *ngFor="let object of questionAnswer | reverse let i = index" [attr.data-index]="i">
+                    <p-panel header="{{object.question}}" [toggleable]="true" [collapsed]="true">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                {{object.answer}}
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="paneltools btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-cog fa-fw" aria-hidden="true"> </i> <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a (click)="editShow(i, object._id)">Edit</a></li>
+                                    <li><a (click)="remove(i, object._id)">Delete</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </p-panel>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p-dialog header="Edit your answer" [(visible)]="display" [resizable]="false" >
+        <div class="row">
+            <div class="col-sm-8">
+                <textarea pInputTextarea rows="1" [(ngModel)]="editedAnswer"></textarea>
+            </div>
+            <div class="editsubmitbtn col-sm-4">
+                <button type="button" pButton icon="fa-check" (click)="editSubmit()" label="Ok"></button>
+            </div>
+        </div>
+    </p-dialog>
+</div>
+
+

@@ -22,18 +22,26 @@
                         </li>
                     </ul>
                 </p-panel>
-                <p-panel header="Your Answers:" [toggleable]="true" [collapsed]="true">
+                <p-panel [toggleable]="true" [collapsed]="false">
+                        <header id="pstart">
+                            <!--<div class="row">-->
+                                <!--<div class="col-sm-12">-->
+                                    <!--<button  (click)="display()" class="btn btn-default"><i class="fa fa-trash" aria-hidden="true"></i></button>-->
+                                    <!--<span id="tst">Your Answers:</span>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </header>
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-8" id="scrollbody">
                             <table class="table table-hover">
                                 <thead>
-                                <tr>
+                                <tr id="tableh">
                                     <th>Challenge</th>
                                     <th>Answer</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr *ngFor="let object of questionAnswer">
+                                <tr *ngFor="let object of questionAnswer | reverse">
                                     <td>
                                         {{ object.question }}
                                     </td>
@@ -45,7 +53,7 @@
                             </table>
                         </div>
                         <div class="col-sm-4">
-                            <!--<button id="start" (click)="display()" class="btn btn-primary">Refresh Answers</button>-->
+
                         </div>
                     </div>
                 </p-panel>
