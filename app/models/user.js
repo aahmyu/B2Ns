@@ -11,8 +11,7 @@ var userSchema = mongoose.Schema({
     },
     inputs: [{
         question: String,
-        answer: String,
-        id: Number
+        answer: String
     }]
 });
 
