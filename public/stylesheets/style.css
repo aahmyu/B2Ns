@@ -7,13 +7,11 @@ body {
 .headImg {
   height:500px;
   text-align:center;
-  background:url('../images/flower.jpg') center no-repeat fixed;
-  /*background-color: #cccccc;*/
+  /*background:url('../images/flower.jpg') center no-repeat fixed;*/
+  background-color: #cccccc;
 }
-.headImg h1 {
+.headImg h2 {
   padding: 60px;
-  font-family: 'Pacifico', cursive;
-  color: #9932CC;
 }
 
 .highlight {
@@ -94,5 +92,9 @@ body {
 
 .editsubmitbtn{
   text-align: center;
+}
+
+.alignLeft{
+  text-align: left;
 }
 

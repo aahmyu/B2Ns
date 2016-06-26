@@ -112,7 +112,6 @@ function deleteHistory(req, res) {
     });
 }
 
-//noinspection JSAnnotator
 module.exports = {
     findChallenge,
     subAnswer,
